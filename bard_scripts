@@ -30,8 +30,13 @@ if BardLevel > 5:
   character().create_cc("Mantle of Majesty",0,1,"long","bubble")
 </drac2>
 
-###Establish Goblin Fury of the Small Counter
+###Enthrall counter
+!test <drac2>
+if BardLevel > 2:
+  character().create_cc("Enthrall",0,1,"short","bubble")
+</drac2>
 
+###Establish Goblin Fury of the Small Counter
 !test <drac2>
 if not character().cc_exists("Fury of the Small"):
   character().create_cc("Fury of the Small",0,1,"short","bubble")
@@ -145,16 +150,16 @@ else:
 
 !alias enthrall embed
 <drac2>
-if (character().get_cc("Bardic Inspiration") > 0 ):
+if (character().get_cc("Enthrall") > 0 ):
   args=argparse(&ARGS&)
-  character().set_cc("Bardic Inspiration", character().get_cc("Bardic Inspiration") - 1)
+  character().set_cc("Enthrall", character().get_cc("Enthrall") - 1)
   failure = False
 else:
   failure = True
 </drac2>
 -title "{{f'{character().name} {"casts Enthralling Performance" if not failure else "fails to cast Enthralling Performance"}!' }}" 
 -desc "Starting at 3rd level, you can charge your performance with seductive, fey magic. If you perform for at least 1 minute, you can attempt to inspire wonder in your audience by singing, reciting a poem, or dancing. At the end of the performance, choose a number of humanoids within 60 feet of you who watched and listened to all of it, up to a number equal to your Charisma modifier (minimum of one). Each target must succeed on a Wisdom saving throw against your spell save DC or be charmed by you. While charmed in this way, the target idolizes you, it speaks glowingly of you to anyone who speaks to it, and it hinders anyone who opposes you, avoiding violence unless it was already inclined to fight on your behalf. This effect ends on a target after 1 hour, if it takes any damage, if you attack it, or if it witnesses you attacking or damaging any of its allies. If a target succeeds on its saving throw, the target has no hint that you tried to charm it. Once you use this feature, you can’t use it again until you finish a short or long rest." 
--f "Bardic Inspiration"|"{{ character().cc_str("Bardic Inspiration") }}"
+-f "Enthrall"|"{{ character().cc_str("Enthrall") }}"
 -footer "Source XGE"
 
 ###Song of Rest -- again no targeting, would be nice to be able to target characters directly, but so far I am only able to do it in combat.

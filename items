@@ -1,0 +1,29 @@
+!alias fiddle embed
+<drac2>
+args = argparse(&ARGS&)
+targets = args.get('t')
+perfBonus = charismaMod + proficiencyBonus * 2
+check = vroll("1d20+" + (charismaMod + proficiencyBonus * 2) )
+curse = vroll("1d20")
+success = True if check.total >= 17 else False
+ret = ""
+targs = ""
+if combat() and targets and success:
+  ret = ret + "'Fiddle of hellfire Success:\n-1d4 on wisdom saves to all targets for a minute'"
+  for target in targets:
+    combat().get_combatant(target).add_effect("Fiddle of Hellfire","",10,"","","","-1d4 to all wisdom saving throws for one minute")
+    targs = targs + combat().get_combatant(target).name + ", "
+elif success:
+  ret = ret + "All targets -1d4 to wisdom saves for one minute\n\n"
+else:
+  ret = ret + "Failure! The fiddle refuses to cooperate with your preformance\n"
+if curse.total == 1:
+  ret = ret + "+'The fiddle unleashes its latent curse'"
+  character().set_cc("Bardic Inspiration", (character().get_cc("Bardic Inspiration") - 1))
+</drac2>
+-title "{{f'{character().name} uses the Fiddle of Hellfire'}}"
+-desc "The hellish tune effects wisdom of specified targets"
+-f "Performance check (DC = 17) {{check}}"
+-f {{ ret }}
+-f "Targets: {{ targets}}"
+-f "Curse Check: {{curse.total}}"

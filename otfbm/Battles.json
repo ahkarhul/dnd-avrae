@@ -1,0 +1,31 @@
+{
+    "Ambush":[
+        "!init add 20 DM -p",
+        "!i madd goblin -note \"Location: b2 | Size: M | Color: r | Token: 8hgd7\"",
+        "!i madd goblin -note \"Location: c2 | Size: M | Color: r | Token: 8hgd7\"",
+        "!i madd goblin -note \"Location: x2 | Size: M | Color: r | Token: 8hgd7\"",
+        "!i madd goblin -note \"Location: y2 | Size: M | Color: r | Token: 8hgd7\"",
+        "!i madd \"young red dragon\" -note \"Location: l6 | Size: L | Color: r | Token: pf9j4\"",
+        "!i effect DM map -attack \"||Size: 26x14 ~ Background: https://i.imgur.com/O2tMCFC.jpg ~ Options: dc60\""
+    ],
+    "Arena":[
+        "!init add 20 DM -p",
+        "!i effect DM map -attack \"||Size: 43x29 ~ Background: https://i.imgur.com/y96BKg2.jpeg ~ Options: dc100o900:600\""
+    ],
+    "Arena_zombies":[
+        "!i madd zombie -note \"Location: y2 | Size: M | Color: r \"",
+        "!i madd zombie -note \"Location: y2 | Size: M | Color: r \"",
+        "!i madd zombie -note \"Location: y2 | Size: M | Color: r \"",
+        "!i madd zombie -note \"Location: y2 | Size: M | Color: r \""
+    ],
+
+    "Dungeon":[
+        "!init add 20 DM -p",
+        "!i effect DM map -attack \"||Size: 28x37 ~ Background: http://archive.wizards.com/dnd/images/mapofweek/05dwarvenfortdng_150dpi_233dhs.jpg ~ Options: d\""
+    ],
+    "Dungeon1":[
+        "!init add 20 DM -p",
+        "!i effect DM map -attack \"||Size: 26x26 ~ Background: https://i.redd.it/7icc3g78vez71.jpg ~ Options: dc260\""
+]
+
+}
